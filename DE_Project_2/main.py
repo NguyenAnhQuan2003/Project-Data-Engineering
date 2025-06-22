@@ -40,9 +40,10 @@ errors = []
 
 start_time = time.time()
 
+#chat gpt
 with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
     futures = {executor.submit(fetch, pid): pid for pid in p_ids}
-    for future in tqdm(as_completed(futures), total=len(futures), desc="🚀 Crawling"):
+    for future in tqdm(as_completed(futures), total=len(futures), desc="Crawling"):
         status, data = future.result()
         if status == 'success':
             result.append(data)
@@ -75,6 +76,7 @@ df_products.to_json('project2.json', orient='records', force_ascii=False, indent
 with open('project2_errors.json', 'w', encoding='utf-8') as f:
     json.dump(errors, f, ensure_ascii=False, indent=2)
 
+#chat gpt
 def write_chunks(data, prefix, outdir):
     os.makedirs(outdir, exist_ok=True)
     total_chunks = math.ceil(len(data) / BATCH_SIZE)
@@ -83,7 +85,7 @@ def write_chunks(data, prefix, outdir):
         filename = f"{outdir}/{prefix}_part_{i+1:03}.json"
         with open(filename, 'w', encoding='utf-8') as f:
             json.dump(chunk, f, ensure_ascii=False, indent=2)
-        print(f"✅ Saved {filename} ({len(chunk)} records)")
+        print(f" Saved {filename} ({len(chunk)} records)")
 
 write_chunks(result, "project2", "output_parts")
 write_chunks(errors, "project2_errors", "output_errors")
