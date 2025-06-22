@@ -22,4 +22,4 @@ Project 2: thực hiện crawling data tiki 200.000 sản phẩm, và chuẩn h�
 - sử dụng ThreadPoolExecutor để có thể thu thập dữ liệu đa luông thay vì dùng for duyệt từng data.
 - viết thêm hàm chunks sử dụng package math, ceil để thực hiện chia file, hay nói cách khác là lặp vòng loop theo từng đợt.
 - ghi các kết quả ra file json.
-- tổng hợp file lỗi và file đúng rồi tính tổng có bao nhiêu % data đúng => có 92% data sạch trong project này.
+- tổng hợp file lỗi và file đúng rồi tính tổng có bao nhiêu % data đúng => có 99.4% data sạch trong project này.
