@@ -103,3 +103,4 @@ stats_df = pd.DataFrame([{
     "fail_rate(%)": fail_rate
 }])
 stats_df.to_csv('thong_ke.csv', index=False)
+#Test git thui
